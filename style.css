@@ -1,0 +1,18 @@
+body{
+    text-align: center;
+}
+ul{
+    display: inline-block;
+    text-align: left;
+}
+li{
+    margin-bottom:10px;
+}
+button{
+    margin-left: 10px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
