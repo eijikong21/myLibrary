@@ -9,7 +9,8 @@ const bookAuthor=document.querySelector('#Author');
 const bookPage=document.querySelector('#Page');
 const form=document.querySelector('form');
 const cancelBtn=document.querySelector('#cancelBtn');
-function Book(title,author,page) {
+class library{
+ constructor(title,author,page) {
   // the constructor...
   this.title=title;
   this.author=author;
@@ -21,7 +22,7 @@ function Book(title,author,page) {
 
 }
 
-function addBookToLibrary() {
+addBookToLibrary() {
   // do stuff here
 dialog.showModal();
 }
@@ -44,7 +45,7 @@ display();
 
 })
 //code below displays the books
-function display(){
+display(){
     while (ul.firstChild) {
         ul.removeChild(ul.firstChild);
     }
@@ -78,5 +79,6 @@ for(i=0;i<myLibrary.length;i++){
    
 }
 }
-display();
+
+}
 
