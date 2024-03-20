@@ -16,9 +16,10 @@ class library{
   this.author=author;
   this.page=page;
   this.sayName = function() {
-    console.log(this.title)
+    console.log(this.title,this.author,this.page);
+    myLibrary.push(`Book Title: ${this.title}, Author: ${this.author}, Page: ${this.page}`);
   };
-  myLibrary.push(`Book Title: ${this.title}, Author: ${this.author}, Page: ${this.page}`);
+ 
 
 }
 
@@ -26,30 +27,14 @@ addBookToLibrary() {
   // do stuff here
 dialog.showModal();
 }
-cancelBtn.addEventListener('click',(event)=>{
-    event.preventDefault();
-    dialog.close();
-    form.reset();
-})
-btn.addEventListener('click',addBookToLibrary);
-confirmBtn.addEventListener('click',(event)=>{
-    event.preventDefault();
-    dialog.close();
-    title=bookTitle.value;
-    author=bookAuthor.value;
-    page=bookPage.value;
-const addBook = new Book(title,author,page);
-addBook.sayName();
-form.reset();
-display();
 
-})
 //code below displays the books
 display(){
+    
     while (ul.firstChild) {
         ul.removeChild(ul.firstChild);
     }
-for(i=0;i<myLibrary.length;i++){
+for(let i=0;i<myLibrary.length;i++){
     const li=document.createElement("li");
     const newBtn = document.createElement('button');
     const readBtn = document.createElement('button');
@@ -82,3 +67,22 @@ for(i=0;i<myLibrary.length;i++){
 
 }
 
+cancelBtn.addEventListener('click',(event)=>{
+    event.preventDefault();
+    dialog.close();
+    form.reset();
+})
+btn.addEventListener('click',new library().addBookToLibrary);
+confirmBtn.addEventListener('click',(event)=>{
+    event.preventDefault();
+    dialog.close();
+    title=bookTitle.value;
+    author=bookAuthor.value;
+    page=bookPage.value;
+const addBook = new library(title,author,page);
+addBook.sayName();
+form.reset();
+new library().display();
+
+})
+new library().display();
